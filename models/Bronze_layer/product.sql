@@ -6,8 +6,8 @@ SELECT
 FROM {{ source('raw_data', 'PRODUCT_EXT') }}
 
 {% if is_incremental() %}
-where source_file not in (
-    select distinct _source_file
+where SOURCE_FILE not in (
+    select distinct SOURCE_FILE
     from {{ this }}
 )
 {% endif %}
