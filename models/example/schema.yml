@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: CT_SALONI_DIXIT_DB
+    schema: CAPSTONE_23619
+
+    tables:
+      - name: CUSTOMER_EXT
+      - name: PRODUCT_EXT
+      - name: SUPPLIER_EXT
+      - name: EMPLOYEE_EXT
+      - name: ORDERS_EXT
+      - name: CAMPAIGN_EXT
+      - name: STORE_EXT
