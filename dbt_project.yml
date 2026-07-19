@@ -42,3 +42,6 @@ models:
         +schema: BRONZE_LAYER
         +materialized: incremental
         +incremental_strategy: merge
+    Silver_layer:
+      +schema: SILVER_LAYER
+      +materialized: table

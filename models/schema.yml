@@ -13,3 +13,16 @@ sources:
       - name: ORDERS_EXT
       - name: CAMPAIGN_EXT
       - name: STORE_EXT
+
+  - name: Bronze_layer
+    database: CT_SALONI_DIXIT_DB
+    schema: CAPSTONE_23619_BRONZE_LAYER
+
+    tables:
+      - name: CUSTOMER
+      - name: PRODUCT
+      - name: SUPPLIER
+      - name: EMPLOYEE
+      - name: ORDERS
+      - name: CAMPAIGN
+      - name: STORE

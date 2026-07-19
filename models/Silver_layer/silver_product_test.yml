@@ -1,0 +1,91 @@
+version: 2
+
+models:
+  - name: silver_product
+    description: "Cleaned and transformed product data"
+
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        tests:
+          - not_null
+
+      - name: product_full_description
+        tests:
+          - not_null
+
+      - name: category
+        tests:
+          - not_null
+
+      - name: subcategory
+        tests:
+          - not_null
+
+      - name: product_line
+        tests:
+          - not_null
+
+      - name: product_hierarchy
+        tests:
+          - not_null
+
+      - name: brand
+        tests:
+          - not_null
+
+      - name: supplier_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('silver_supplier')
+                field: supplier_id
+
+      - name: unit_price
+        tests:
+          - not_null
+
+      - name: cost_price
+        tests:
+          - not_null
+
+      - name: profit_margin_percentage
+        tests:
+          - not_null
+
+      - name: stock_quantity
+        tests:
+          - not_null
+
+      - name: reorder_level
+        tests:
+          - not_null
+
+      - name: low_stock_flag
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - TRUE
+                  - FALSE
+
+      - name: is_featured
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - TRUE
+                  - FALSE
+
+      - name: launch_date
+        tests:
+          - not_null
+
+      - name: last_modified_date
+        tests:
+          - not_null
