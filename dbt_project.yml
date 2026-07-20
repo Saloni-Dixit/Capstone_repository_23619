@@ -45,3 +45,9 @@ models:
     Silver_layer:
       +schema: SILVER_LAYER
       +materialized: table
+    Gold_layer:
+      +schema: GOLD_LAYER
+      +materialized: table
+    Reporting_views:
+      +schema: REPORTING_VIEW
+      +materialized: view

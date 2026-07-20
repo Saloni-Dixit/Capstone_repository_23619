@@ -5,6 +5,16 @@ sources:
     database: CT_SALONI_DIXIT_DB
     schema: CAPSTONE_23619
 
+    config:
+      freshness:
+        warn_after:
+          count: 1
+          period: day
+        error_after:
+          count: 2
+          period: day
+      loaded_at_field: _loaded_at
+
     tables:
       - name: CUSTOMER_EXT
       - name: PRODUCT_EXT
@@ -13,6 +23,7 @@ sources:
       - name: ORDERS_EXT
       - name: CAMPAIGN_EXT
       - name: STORE_EXT
+
 
   - name: Bronze_layer
     database: CT_SALONI_DIXIT_DB
@@ -26,3 +37,17 @@ sources:
       - name: ORDERS
       - name: CAMPAIGN
       - name: STORE
+
+
+  - name: Silver_layer
+    database: CT_SALONI_DIXIT_DB
+    schema: CAPSTONE_23619_SILVER_LAYER
+
+    tables:
+      - name: SILVER_CUSTOMER
+      - name: SILVER_PRODUCT
+      - name: SILVER_SUPPLIER
+      - name: SILVER_EMPLOYEE
+      - name: SILVER_ORDERS
+      - name: SILVER_STORE
+      - name: SILVER_CAMPAIGN
