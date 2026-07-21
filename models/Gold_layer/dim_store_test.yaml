@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: dim_store
+    columns:
+      - name: store_key
+        tests:
+          - unique
+          - not_null
+
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+      - name: store_name
+        tests:
+          - not_null
+
+      - name: address
+        tests:
+          - not_null
+
+      - name: region
+        tests:
+          - not_null
+
+      - name: store_type
+        tests:
+          - not_null
+
+      - name: opening_date
+        tests:
+          - not_null
+
+      - name: size_category
+        tests:
+          - not_null

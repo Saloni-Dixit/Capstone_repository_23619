@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: silver_store
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+      - name: store_name
+        tests:
+          - not_null
+
+      - name: store_type
+        tests:
+          - not_null
+
+      - name: manager_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('silver_employee')
+                field: employee_id
+              config:
+                where: "manager_id is not null"
+
+      - name: email
+        tests:
+          - not_null
+
+      - name: store_size_category
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - Small
+                  - Medium
+                  - Large
+
+      - name: size_sq_ft
+        tests:
+          - not_null
+
+      - name: employee_count
+        tests:
+          - not_null
+
+      - name: current_sales
+        tests:
+          - not_null
+
+      - name: sales_target
+        tests:
+          - not_null
+
+      - name: opening_date
+        tests:
+          - not_null
+
+      - name: store_age
+        tests:
+          - not_null
+
+      - name: sales_target_achievement_percentage
+        tests:
+          - not_null
+
+      - name: revenue_per_sq_ft
+        tests:
+          - not_null
+
+      - name: employee_efficiency
+        tests:
+          - not_null
+
+      - name: performance_issue_flag
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - true
+                  - false
+
+      - name: zip_code
+        tests:
+          - not_null

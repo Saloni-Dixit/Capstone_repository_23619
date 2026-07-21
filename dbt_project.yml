@@ -42,3 +42,12 @@ models:
         +schema: BRONZE_LAYER
         +materialized: incremental
         +incremental_strategy: merge
+    Silver_layer:
+      +schema: "{{'SILVER_LAYER_PROD' if target.name == 'Production' else 'SILVER_LAYER'}}" 
+      +materialized: table
+    Gold_layer:
+      +schema: "{{'GOLD_LAYER_PROD' if target.name == 'Production' else 'GOLD_LAYER'}}" 
+      +materialized: table
+    Reporting_views:
+      +schema: REPORTING_VIEW
+      +materialized: view   

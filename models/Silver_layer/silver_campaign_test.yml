@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: silver_campaign
+    description: "Cleaned and transformed campaign data"
+
+    columns:
+
+      - name: campaign_id
+        tests:
+          - unique
+          - not_null
+
+      - name: campaign_name
+        tests:
+          - not_null
+
+      - name: campaign_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - Discount Event
+                  - Clearance
+                  - Product Launch
+                  - Seasonal Promotion
+                  - Brand Awareness
+
+      - name: channel
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - Email
+                  - Print Media
+                  - In-Store
+                  - Digital Ads
+                  - Social Media
+                  - Multiple (Email, Social Media, In-Store)
+
+      - name: start_date
+        tests:
+          - not_null
+
+      - name: end_date
+        tests:
+          - not_null
+
+      - name: last_modified_date
+        tests:
+          - not_null
+
+      - name: budget
+        tests:
+          - not_null
+
+      - name: total_cost
+        tests:
+          - not_null
+
+      - name: total_revenue
+        tests:
+          - not_null
+
+      - name: roi_calculation
+        tests:
+          - not_null
