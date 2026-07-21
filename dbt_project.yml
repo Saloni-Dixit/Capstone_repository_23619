@@ -50,4 +50,4 @@ models:
       +materialized: table
     Reporting_views:
       +schema: REPORTING_VIEW
-      +materialized: view
+      +materialized: view   
