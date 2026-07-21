@@ -1,18 +1,20 @@
 {% macro create_external_tables() %}
 
 {% set folders = [
-    'customer',
-    'product',
-    'supplier',
-    'employee',
-    'orders',
-    'campaign',
-    'store'
+    'customer_data',
+    'product_data',
+    'supplier_data',
+    'employee_data',
+    'orders_data',
+    'campaign_data',
+    'store_data'
 ] %}
 
 
 {% for folder in folders %}
-    {% set table_name = folder | upper ~ '_EXT' %}
+
+    {% set table_name = folder | replace('_data','') | upper ~ '_EXT' %}
+
     {% set sql %}
 
     CREATE OR REPLACE EXTERNAL TABLE
@@ -26,9 +28,12 @@
         STRIP_OUTER_ARRAY=TRUE
     )
     AUTO_REFRESH=FALSE;
+
     {% endset %}
+
     {{ log("Creating external table: " ~ table_name, info=True) }}
     {{ run_query(sql) }}
+
 {% endfor %}
 
 {% endmacro %}

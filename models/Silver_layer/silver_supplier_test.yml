@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: silver_supplier
+    columns:
+
+      - name: supplier_id
+        tests:
+          - unique
+          - not_null
+
+      - name: supplier_name
+        tests:
+          - not_null
+
+      - name: supplier_type
+        tests:
+          - not_null
+
+      - name: email
+        tests:
+          - unique
+
+      - name: is_active
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - TRUE
+                  - FALSE
+
+      - name: lead_time_days
+        tests:
+          - not_null
+
+      - name: minimum_order_quantity
+        tests:
+          - not_null
+
+      - name: last_order_date
+        tests:
+          - not_null
+        
+      - name: exclusivity
+        tests:
+          - not_null
+
+      - name: renewal_option
+        tests:
+          - not_null
+
+      - name: categories_supplied
+        tests:
+          - not_null
+
+      - name: defect_rate
+        tests:
+          - not_null
+
+      - name: on_time_delivery_rate
+        tests:
+          - not_null
+
+      - name: supplier_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('silver_supplier')
+                field: supplier_id
+
+      - name: contract_start_date
+        tests:
+          - not_null
+
+      - name: contract_end_date
+        tests:
+          - not_null

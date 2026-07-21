@@ -5,6 +5,16 @@ sources:
     database: CT_SALONI_DIXIT_DB
     schema: CAPSTONE_23619
 
+    config:
+      freshness:
+        warn_after:
+          count: 1
+          period: day
+        error_after:
+          count: 2
+          period: day
+      loaded_at_field: _loaded_at
+
     tables:
       - name: CUSTOMER_EXT
       - name: PRODUCT_EXT
@@ -13,3 +23,4 @@ sources:
       - name: ORDERS_EXT
       - name: CAMPAIGN_EXT
       - name: STORE_EXT
+
